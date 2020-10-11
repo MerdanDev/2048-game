@@ -7,21 +7,21 @@ from random import randint
 
 tk = Tk() #tkinteri tk diýip atlandyrýarys.
 tk.configure(bg = '#bf6e3e') # onuň arka fonuny sazlaýarys.
-n0 = PhotoImage(file = "imgs\0.gif") #bize her bir san görnüşi 
-n2 = PhotoImage(file = "imgs\2.gif") # üçin aýratyn surat gerek,
-n4 = PhotoImage(file = "imgs\4.gif")  # olar hökmany ýagdaýda deň
-n8 = PhotoImage(file = "imgs\8.gif")  # bolmaly.
-n16 = PhotoImage(file = "imgs\16.gif") # Suratyň beter uly bolmazlygyna
-n32 = PhotoImage(file = "imgs\32.gif") # üns beriň!
-n64 = PhotoImage(file = "imgs\64.gif")
-n128 = PhotoImage(file = "imgs\128.gif")
-n256 = PhotoImage(file = "imgs\256.gif")
-n512 = PhotoImage(file = "imgs\512.gif")
-n1024 = PhotoImage(file = "imgs\1024.gif")
-n2048 = PhotoImage(file = "imgs\2048.gif")
-n4096 = PhotoImage(file = "imgs\4096.gif")
-n8192 = PhotoImage(file = "imgs\8192.gif")
-n16384 = PhotoImage(file = "imgs\16384.gif")
+n0 = PhotoImage(file = "0.gif") #bize her bir san görnüşi 
+n2 = PhotoImage(file = "2.gif") # üçin aýratyn surat gerek,
+n4 = PhotoImage(file = "4.gif")  # olar hökmany ýagdaýda deň
+n8 = PhotoImage(file = "8.gif")  # bolmaly.
+n16 = PhotoImage(file = "16.gif") # Suratyň beter uly bolmazlygyna
+n32 = PhotoImage(file = "32.gif") # üns beriň!
+n64 = PhotoImage(file = "64.gif")
+n128 = PhotoImage(file = "128.gif")
+n256 = PhotoImage(file = "256.gif")
+n512 = PhotoImage(file = "512.gif")
+n1024 = PhotoImage(file = "1024.gif")
+n2048 = PhotoImage(file = "2048.gif")
+n4096 = PhotoImage(file = "4096.gif")
+n8192 = PhotoImage(file = "8192.gif")
+n16384 = PhotoImage(file = "16384.gif")
 
 
 buttons, num_arrs = [], []  # ýörite buttonlary saklamak üçin buttons
