@@ -1,28 +1,23 @@
 from tkinter import *  #tkinter kitaphanasyndan ähli 
+import glob, os
 # komponentleri çagyrýarysm muny etmek hökmän däl sebäbi
 # içinden ulanmaýan komponentlerimiz bar.  
 from random import randint
 # random kitaphanysyndan randint komponentini çagyrýarys,
 # bu bize kompýutere tötänleýin hereketi etdirmek üçin gerek.
 
-tk = Tk() #tkinteri tk diýip atlandyrýarys.
-tk.configure(bg = '#bf6e3e') # onuň arka fonuny sazlaýarys.
-n0 = PhotoImage(file = "0.gif") #bize her bir san görnüşi 
-n2 = PhotoImage(file = "2.gif") # üçin aýratyn surat gerek,
-n4 = PhotoImage(file = "4.gif")  # olar hökmany ýagdaýda deň
-n8 = PhotoImage(file = "8.gif")  # bolmaly.
-n16 = PhotoImage(file = "16.gif") # Suratyň beter uly bolmazlygyna
-n32 = PhotoImage(file = "32.gif") # üns beriň!
-n64 = PhotoImage(file = "64.gif")
-n128 = PhotoImage(file = "128.gif")
-n256 = PhotoImage(file = "256.gif")
-n512 = PhotoImage(file = "512.gif")
-n1024 = PhotoImage(file = "1024.gif")
-n2048 = PhotoImage(file = "2048.gif")
-n4096 = PhotoImage(file = "4096.gif")
-n8192 = PhotoImage(file = "8192.gif")
-n16384 = PhotoImage(file = "16384.gif")
+tk = Tk() #tkinteri tk diýip atlandyrýarys, onuň arka fonuny sazlaýarys,
+# bize her bir san görnüşi üçin aýratyn surat gerek, olar hökmany ýagdaýda deň bolmaly.
+# Suratyň beter uly bolmazlygyna üns beriň!
 
+img_list = []
+for filename in sorted(glob.glob('gif/*.gif'), key=os.path.getmtime): #.gif format üçin
+    img = PhotoImage(file = filename)
+    img_list.append(img)
+
+img_list.reverse()
+img_list.insert(0, img_list[-1])
+del img_list[-1]
 
 buttons, num_arrs = [], []  # ýörite buttonlary saklamak üçin buttons
 # diýen listi ulanýarys. Olaryň bahalaryny saklamak üçin num_arrs 
@@ -39,35 +34,35 @@ def set_num(): # bu funksiýa düwmeleriň bahalaryna görä suratyny üýtgetý
     for x in range(len(num_arrs)):
         for y in range(len(num_arrs)):
             if num_arrs[x][y] == 0:
-                buttons[x][y].configure(image = n0)
+                buttons[x][y].configure(image = img_list[0])
             elif num_arrs[x][y] == 2:
-                buttons[x][y].configure(image = n2)
+                buttons[x][y].configure(image = img_list[1])
             elif num_arrs[x][y] == 4:
-                buttons[x][y].configure(image = n4)
+                buttons[x][y].configure(image = img_list[2])
             elif num_arrs[x][y] == 8:
-                buttons[x][y].configure(image = n8)
+                buttons[x][y].configure(image = img_list[3])
             elif num_arrs[x][y] == 16:
-                buttons[x][y].configure(image = n16)
+                buttons[x][y].configure(image = img_list[4])
             elif num_arrs[x][y] == 32:
-                buttons[x][y].configure(image = n32)
+                buttons[x][y].configure(image = img_list[5])
             elif num_arrs[x][y] == 64:
-                buttons[x][y].configure(image = n64)
+                buttons[x][y].configure(image = img_list[6])
             elif num_arrs[x][y] == 128:
-                buttons[x][y].configure(image = n128)
+                buttons[x][y].configure(image = img_list[7])
             elif num_arrs[x][y] == 256:
-                buttons[x][y].configure(image = n256)
+                buttons[x][y].configure(image = img_list[8])
             elif num_arrs[x][y] == 512:
-                buttons[x][y].configure(image = n512)
+                buttons[x][y].configure(image = img_list[9])
             elif num_arrs[x][y] == 1024:
-                buttons[x][y].configure(image = n1024)
+                buttons[x][y].configure(image = img_list[10])
             elif num_arrs[x][y] == 2048:
-                buttons[x][y].configure(image = n2048)
+                buttons[x][y].configure(image = img_list[11])
             elif num_arrs[x][y] == 4096:
-                buttons[x][y].configure(image = n4096)
+                buttons[x][y].configure(image = img_list[12])
             elif num_arrs[x][y] == 8192:
-                buttons[x][y].configure(image = n8192)
-            elif num_arrs[x][y] == 2:
-                buttons[x][y].configure(image = n16384)
+                buttons[x][y].configure(image = img_list[13])
+            elif num_arrs[x][y] == 16384:
+                buttons[x][y].configure(image = img_list[14])
             else:
                 buttons[x][y].configure(text = num_arrs[x][y], padx = 43, padt = 43)
 
@@ -176,8 +171,8 @@ def move(direction):
                 num_arrs[x].reverse()
 
         maximum = len(num_arrs)
-    print(check_changed)
-    print(num_arrs)
+    # print(check_changed)
+    # print(num_arrs)
 
     if check_changed != num_arrs:
         give_rand_num()
@@ -236,7 +231,7 @@ def config(length):
         buttons.append([])
         num_arrs.append([])
         for y in range(length):
-            buttons[x].append(Button(tk, image = n0, bd = 1, bg = '#bf6e3e'))
+            buttons[x].append(Button(tk, image = img_list[0], bd = 1, bg = '#bf6e3e'))
             buttons[x][y].grid(row = x, column = y)
             num_arrs[x].append(0)
     give_rand_num()
