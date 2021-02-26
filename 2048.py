@@ -30,39 +30,13 @@ button_select = True # bu üýtgeýän ululyk bize menýy we oýun panelinden
 # ýagny eger true bolsa menýu panelinde düwmeler işleýär, 
 # bolmasa oçun panelinde işleýär
 
-def set_num(): # bu funksiýa düwmeleriň bahalaryna görä suratyny üýtgetýer 
+num_list = [0, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384]
+
+def set_num(): # bu funksiýa düwmeleriň bahalaryna görä suratyny üýtgedýär
     for x in range(len(num_arrs)):
         for y in range(len(num_arrs)):
-            if num_arrs[x][y] == 0:
-                buttons[x][y].configure(image = img_list[0])
-            elif num_arrs[x][y] == 2:
-                buttons[x][y].configure(image = img_list[1])
-            elif num_arrs[x][y] == 4:
-                buttons[x][y].configure(image = img_list[2])
-            elif num_arrs[x][y] == 8:
-                buttons[x][y].configure(image = img_list[3])
-            elif num_arrs[x][y] == 16:
-                buttons[x][y].configure(image = img_list[4])
-            elif num_arrs[x][y] == 32:
-                buttons[x][y].configure(image = img_list[5])
-            elif num_arrs[x][y] == 64:
-                buttons[x][y].configure(image = img_list[6])
-            elif num_arrs[x][y] == 128:
-                buttons[x][y].configure(image = img_list[7])
-            elif num_arrs[x][y] == 256:
-                buttons[x][y].configure(image = img_list[8])
-            elif num_arrs[x][y] == 512:
-                buttons[x][y].configure(image = img_list[9])
-            elif num_arrs[x][y] == 1024:
-                buttons[x][y].configure(image = img_list[10])
-            elif num_arrs[x][y] == 2048:
-                buttons[x][y].configure(image = img_list[11])
-            elif num_arrs[x][y] == 4096:
-                buttons[x][y].configure(image = img_list[12])
-            elif num_arrs[x][y] == 8192:
-                buttons[x][y].configure(image = img_list[13])
-            elif num_arrs[x][y] == 16384:
-                buttons[x][y].configure(image = img_list[14])
+            if num_list.count(num_arrs[x][y]):
+                buttons[x][y].configure(image = img_list[num_list.index(num_arrs[x][y])])
             else:
                 buttons[x][y].configure(text = num_arrs[x][y], padx = 43, padt = 43)
 
@@ -250,6 +224,7 @@ def config(length):
     button0.grid_forget()
     button1.grid_forget()
     button2.grid_forget()
+
 tk.bind("<Key>", key_press)
 
 button0 = Button(tk, text = "4x4", bd = 5, bg = '#aaaaaa', padx = 42, pady = 10, command = lambda: config(4))
