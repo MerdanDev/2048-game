@@ -7,6 +7,6 @@ All you need is to reach 2048 and if you want you can continue game.
 You should control game with keyboard, if you want play with virtual buttons you can add button.
 
 
-MIT License
+            MIT License
 
-Copyright (c) 2021 Merdan
+    Copyright (c) 2021 MerdanDev
